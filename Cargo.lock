@@ -918,6 +918,20 @@ dependencies = [
 ]
 
 [[package]]
+name = "trit-core"
+version = "0.12.0"
+source = "git+https://github.com/bfxh/trit?rev=a44ff95808ea5fe52982fdc06859aabdb6abd1b8#a44ff95808ea5fe52982fdc06859aabdb6abd1b8"
+dependencies = [
+ "serde",
+ "thiserror",
+]
+
+[[package]]
+name = "trit-learn"
+version = "0.12.0"
+source = "git+https://github.com/bfxh/trit?rev=a44ff95808ea5fe52982fdc06859aabdb6abd1b8#a44ff95808ea5fe52982fdc06859aabdb6abd1b8"
+
+[[package]]
 name = "trit-look"
 version = "0.1.0"
 source = "git+https://github.com/bfxh/trit-look?rev=f32001b446778d0e568b083c320ac5316384ff42#f32001b446778d0e568b083c320ac5316384ff42"
@@ -933,8 +947,19 @@ dependencies = [
  "image",
  "png",
  "pollster",
+ "trit-learn",
  "trit-look",
+ "trit-train",
  "wgpu",
+]
+
+[[package]]
+name = "trit-train"
+version = "0.12.0"
+source = "git+https://github.com/bfxh/trit?rev=a44ff95808ea5fe52982fdc06859aabdb6abd1b8#a44ff95808ea5fe52982fdc06859aabdb6abd1b8"
+dependencies = [
+ "trit-core",
+ "trit-learn",
 ]
 
 [[package]]
