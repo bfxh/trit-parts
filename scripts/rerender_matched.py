@@ -6,7 +6,7 @@ mat240 当初用渲染器默认（3.4 / 12°）⇒ 前景占比 0.35 vs 0.11，�
 做法：从 mat60 的 60 个 manifest 里自举采样 (radius, elev)，
 并保证 radius ≥ 1.35 × 场景簇半径（放得下），逐场景调 blender 重渲。
 
-用法：python scripts/rerender_matched.py --root E:/trit-data/s1/mat240
+用法：python scripts/rerender_matched.py --root <DATA>/s1/mat240
 """
 from __future__ import annotations
 
@@ -36,7 +36,7 @@ def cluster_radius(objects: list[dict]) -> float:
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--root", required=True)
-    ap.add_argument("--ref", default="E:/trit-data/s1/mat60/renders")
+    ap.add_argument("--ref", required=True, help="参考集 renders 根（用于自举相机分布）")
     ap.add_argument("--scenes", default=None, help="场景根目录（默认 <root>/scenes）")
     ap.add_argument("--frames", type=int, default=8)
     ap.add_argument("--res", type=int, default=384)

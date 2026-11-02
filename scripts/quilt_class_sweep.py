@@ -45,7 +45,7 @@ def measure(look_exe: str, paths: list[str]) -> dict[str, dict[str, float]]:
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--textures", default="D:/KF/trit-data/textures")
+    ap.add_argument("--textures", required=True, help="材质纹理库根（含 labels.tsv 与 ambientcg/）")
     ap.add_argument("--parts-3d", required=True)
     ap.add_argument("--look", required=True)
     ap.add_argument("--n", type=int, default=4)

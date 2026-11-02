@@ -2,7 +2,7 @@
 
 用法：
   "C:/Program Files/Blender Foundation/Blender 4.2/blender.exe" -b -P scripts/check_obj_blender.py -- \
-      --obj E:/tmp/batch/scene0010.obj
+      --obj <OUT>/batch/scene0010.obj
 
 输出（stdout，供脚本抓取）：
   CHECK_OBJ verts=<n> tris=<n> loose_edges=<n> materials=<n> images=<n> image_size=<w>x<h> uv_layers=<n> uv_range=<min>..<max>

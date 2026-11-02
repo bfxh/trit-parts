@@ -5,3 +5,6 @@ target/
 
 # 本地评测产物
 /runs/
+
+# Python 字节码
+__pycache__/
