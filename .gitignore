@@ -2,3 +2,6 @@ target/
 *.ppm
 *.ply
 .dsn/
+
+# 本地评测产物
+/runs/
