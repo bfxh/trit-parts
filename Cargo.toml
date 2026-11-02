@@ -1,0 +1,77 @@
+[package]
+name = "trit-parts"
+version = "0.12.0"
+edition = "2024"
+rust-version = "1.88"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/bfxh/trit-parts"
+description = "三进制部件分解：单图 RGB → 前景/部件边界/深度 → 网格 → 逐部件 3D 资产（研究原型，非稳定 API）"
+readme = "README.md"
+keywords = ["ternary", "3d", "segmentation", "wgpu", "quantization"]
+categories = ["graphics", "science"]
+publish = false
+
+# 独立仓：自己就是 workspace 根（不再属于原 trit 工作区）。
+[workspace]
+
+[features]
+default = []
+gpu = ["dep:wgpu", "dep:pollster", "dep:bytemuck"]
+
+[dependencies]
+wgpu = { version = "30", optional = true }
+pollster = { version = "0.4", optional = true }
+bytemuck = { version = "1", features = ["derive"], optional = true }
+# 观感/风格测量的正本（独立仓，pin rev 保证可复现）
+trit-look = { version = "0.1", git = "https://github.com/bfxh/trit-look", rev = "f32001b446778d0e568b083c320ac5316384ff42" }
+# 训练数据是 PNG（384² RGB）；纯 Rust 解码，不借 Python。
+png = "0.17"
+image = { version = "0.25", default-features = false, features = ["jpeg"] }
+
+[[bin]]
+name = "parts-parity"
+path = "src/bin/parts_parity.rs"
+required-features = ["gpu"]
+
+[[bin]]
+name = "parts-gradcheck"
+path = "src/bin/parts_gradcheck.rs"
+required-features = ["gpu"]
+
+[[bin]]
+name = "parts-train"
+path = "src/bin/parts_train.rs"
+required-features = ["gpu"]
+
+[[bin]]
+name = "parts-bench"
+path = "src/bin/parts_bench.rs"
+required-features = ["gpu"]
+
+[[bin]]
+name = "parts-cli"
+path = "src/bin/parts_cli.rs"
+
+[[bin]]
+name = "parts-3d"
+path = "src/bin/parts_3d.rs"
+required-features = ["gpu"]
+
+[[bin]]
+name = "parts-depth"
+path = "src/bin/parts_depth.rs"
+required-features = ["gpu"]
+
+[[bin]]
+name = "parts-guard"
+path = "src/bin/parts_guard.rs"
+
+[[bin]]
+name = "parts-ood"
+path = "src/bin/parts_ood.rs"
+required-features = ["gpu"]
+
+[[bin]]
+name = "parts-inst"
+path = "src/bin/parts_inst.rs"
+required-features = ["gpu"]
