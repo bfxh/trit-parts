@@ -2,8 +2,8 @@ use wgpu::Buffer;
 
 use crate::backward::ste_apply;
 use crate::gpu::Gpu;
-use crate::weights::ConvW;
 use crate::ste::Ste;
+use crate::weights::ConvW;
 
 /// 层序号（与 `forward` 的顺序一致）。
 pub const E1A: usize = 0;

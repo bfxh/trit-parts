@@ -1,8 +1,8 @@
 use wgpu::Buffer;
 
 use crate::gpu::Gpu;
-use crate::weights::{ConvW, Tensors, conv_w, convt_w};
 use crate::ste::Ste;
+use crate::weights::{ConvW, Tensors, conv_w, convt_w};
 
 use super::layer::*;
 
