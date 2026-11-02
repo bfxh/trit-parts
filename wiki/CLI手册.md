@@ -38,6 +38,9 @@ parts-inst eval --model runs/pb/pb.tpm --renders R --scenes S \
 
 # 一条龙：2D + 全帧 3D 部件 IoU + 前 3 场景分片
 RENDERS=R SCENES=S HOLD=scene0050,scene0051 DCN=D bash scripts/eval_boundary.sh runs/pb/pb.tpm tag
+
+# 验收门：同样的链路 + 阈值判红（退出码 0/1）
+MODEL=pb.tpm RENDERS=R SCENES=S HOLD=scene0050,scene0051,scene0052 DCN=dcn   bash scripts/regress_holdout.sh
 ```
 
 `eval` 的常用旋钮：`--bnd-margin`（边界阈值，默认 −1）、`--min-size`（默认 50）、
