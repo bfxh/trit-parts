@@ -86,4 +86,4 @@ cargo run --release --features gpu --bin parts-depth -- mesh-single \
 
 ## 许可
 
-MIT OR Apache-2.0。
+MIT（署名与来源条款见 [NOTICE.md](NOTICE.md)）。
